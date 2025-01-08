@@ -24,8 +24,9 @@ document.querySelector('.day').textContent = formattedDate;
 
 searchInput.addEventListener('change', (e) => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${e.target.value}&appid=${APP_ID}&units=metric&lang=vi`)
-        .then(async res => {
-            const data = await res.json();
+        .then(async response => {
+            console.log(e)
+            const data = await response.json();
             console.log('[Search Input]', data);
             cityName.innerHTML = data.name || DEFAULT_VALUE;
             weatherState.innerHTML = data.weather[0].description || DEFAULT_VALUE;
