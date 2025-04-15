@@ -26,7 +26,6 @@ searchInput.addEventListener('change', (e) => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${e.target.value}&appid=${APP_ID}&units=metric&lang=vi`)
         .then(async response => {
             const data = await response.json();
-            console.log('[Search Input]', data);
             cityName.innerHTML = data.name || DEFAULT_VALUE;
             weatherState.innerHTML = data.weather[0].description || DEFAULT_VALUE;
             weatherIcon.setAttribute('src', `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
